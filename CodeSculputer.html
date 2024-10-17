@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codesculputer</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+   />
+     <style>
+        *{
+            outline: 0;
+            border: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+        }
+        .navigation{
+            position: relative;
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition-delay: 0.8s;
+        }
+        .navigation.active{
+            width: 200px;
+            height: 200px;
+            transition-delay: 0s;
+        }
+        .navigation span{
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background: black;
+            border-radius: 50%;
+            transition: 0.2s linear;
+            transition-delay: calc(0.06s * var(--i)) ;
+            transform: translate(calc(24px*var(--x)),calc(24px*var(--y)));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navigation.navigation.active span{
+            transform: translate(calc(60px*var(--x)),calc(60px*var(--y)));
+            width: 40px;
+            height: 40px;
+        }
+        .navigation i{
+            font-size: 0;
+            z-index: 10px;
+            color: #fff;
+            transition: 0.2s linear;
+
+        }
+        .navigation.navigation.active i{
+            font-size: 20px;
+           
+        }
+        .navigation.navigation.active span:hover i{
+            filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.8)) 
+            drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
+            color: black;
+        }
+        .navigation.navigation.active span:hover{
+           background: white;
+           border: 2px solid black;
+        }
+
+     </style>
+
+</head>
+<body>
+    <div class="navigation">
+        <span style="--i:0;--x:0;--y:0;"><i class="ri-camera-line"></i></span>
+        <span style="--i:1;--x:1;--y:0;"><i class="ri-moon-line"></i></span>
+        <span style="--i:2;--x:-1;--y:0;"><i class="ri-profile-line"></i></span>
+        <span style="--i:3;--x:0;--y:1;"><i class="ri-contacts-fill"></i></span>
+        <span style="--i:4;--x:0;--y:-1;"><i class="ri-sd-card-line"></i></span>
+        <span style="--i:5;--x:-1;--y:-1;"><i class="ri-eraser-line"></i></span>
+        <span style="--i:6;--x:1;--y:1;"><i class="ri-cloud-off-line"></i></span>
+        <span style="--i:7;--x:1;--y:-1;"><i class="ri-trademark-line"></i></span>
+        <span style="--i:8;--x:-1;--y:1;"><i class="ri-id-card-fill"></i></span>
+    </div>
+
+    <script>
+        let navigation=document.querySelector('.navigation')
+
+        //if the navigation btn is sselected
+        if(navigation){
+            navigation.addEventListener('click',()=>{
+                navigation.classList.toggle("active")
+            })
+        }
+    </script>
+</body>
+</html>
